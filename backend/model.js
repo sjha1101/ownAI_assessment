@@ -1,5 +1,6 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('./db');
+const bcrypt = require('bcryptjs');
 
 const Registration = sequelize.define('Registration',{
     name:{
@@ -34,12 +35,8 @@ const Registration = sequelize.define('Registration',{
     }
 });
 
-sequelize.sync()
-.then(()=>{
-    console.log("Registration table created.");
-})
-.catch(err=>{
-    console.log("Error in creating table.",err);
+Registration.beforeCreate(async(user)=>{
+    user.password = await bcrypt.hash(user.password,10);
 });
 
 module.exports = Registration;
