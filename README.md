@@ -1,4 +1,4 @@
-# ownAI_assessment
+# ownAI_assessment for nodejs
 first check the node -v => v20.19.4
 run the following command to run the project 
 npm init -y
@@ -7,3 +7,5 @@ npm i sequelize
 npm install mySql2
 npm install bcryptjs jsonwebtoken
 Then run db.js => node db.js
+
+# ownAI_assessment for reactjs
